@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curise Booking</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    
+    <!--Header and Menu Section-->
+    <header class="container">
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a class="active" href="#">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--Booking Section-->
+    <main id="booking-area" class="main-content container ">
+
+        <div class="booking-content">
+            <h1>Cruise Queen</h1>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book./p>
+        </div>
+
+
+        <div class="booking-form">
+            <h3>Book Ocean Time</h3>
+            <div class="input-group">
+                <label for="">Flying From</label>
+                <input class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh">
+            </div>
+            <div class="input-group">
+                <label for="">Flying To</label>
+                <input class="inp-style" type="text" name="" placeholder="New York, United States">
+            </div>
+            <div class="inputs">
+                <div class="input-group">
+                    <label" for="">Departure</label>
+                    <input class="inp-style" type="date" name="">
+                </div>
+                <div class="input-group">
+                    <label for="">Return</label>
+                    <input class="inp-style" type="date" name="">
+                </div>
+            </div>
+            <div class="input-group f-class ">
+                <div>
+                    <label  for="">First Class <span id="first-class-total">($150)</span> </label>
+                  <input id="first-class-count"  type="text" class="form-control text-center" value="1">
+                   
+                </div>
+                <div class="plus-minus-btn  ">
+                    <p><span onclick=" handleSeatChange( 'first-class', false);">-</span>  <span onclick=" handleSeatChange( 'first-class', true)">+</span></p>
+                </div> 
+            </div>
+            
+            <div class="input-group f-class">
+                <div>
+                    <label for="">Economy <span id="economy-total">($100)</span> </label>
+                    <input id="economy-count"  type="text" class="form-control text-center" value="1">
+                </div>
+                <div class="plus-minus-btn">
+                    <p> <span onclick=" handleSeatChange( 'economy', false);">-</span> <span  onclick=" handleSeatChange( 'economy', true)">+</span> </p>
+                </div>
+            </div>
+            <div class="calculations">
+                <div class="amount">
+                    <div class="left">
+                        <p>Subtotal</p>
+                    </div>
+                    <div class="right">
+                        <p id="subTotal-price">$250</p>
+                    </div>
+                </div>
+
+                <div class="amount">
+                    <div class="left">
+                        <p >Charge 10% VAT</p>
+                    </div>
+                    <div class="right">
+                        <p id="tax-amount">$25</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="amount">
+                    <div class="left">
+                        <h4>Total</h4>
+                    </div>
+                    <div class="right">
+                        <p id="total-price">$275</p>
+                    </div>
+                </div>
+            </div>
+            <button id="login" class="btn-style">Book Now</button>
+        </div>
+        
+    </main>
+    
+
+<div id="successful-area" >
+    <h1>Congratulation! </h1>
+    <h2> your booking is successfully done!</h2>
+</div>
+
+    <script>
+         function handleSeatChange(seat,isIncrease){
+            const seatInput = document.getElementById(seat + "-count");
+           const  seatCount = parseInt(seatInput.value);
+       
+        let seatNewCount = seatCount;
+        if (isIncrease == true){
+            seatNewCount = seatCount + 1;
+        }
+        if(isIncrease == false && seatCount > 0){
+            seatNewCount = seatCount - 1;
+        }
+        seatInput.value = seatNewCount;
+      
+        if( seat == "first-class"){
+            seatTotal = seatNewCount * 150 ;
+        }
+        if (seat == "economy")
+        {
+            seatTotal = seatNewCount * 100 ;
+        }
+
+           document.getElementById(seat +"-total").innerText = '(' + '$' + seatTotal + ')';
+           calculateTotal();
+        }
+        function calculateTotal(){
+            const firstClassInput = document.getElementById("first-class-count");
+            const firstClassCount = parseInt(firstClassInput.value);
+
+            const economyInput = document.getElementById("economy-count");
+            const economyCount = parseInt(economyInput.value);
+            
+            const subTotalPrice = firstClassCount * 150 + economyCount * 100;
+            document.getElementById('subTotal-price').innerText =   '$' + subTotalPrice ;
+            const tax = subTotalPrice * 0.1;
+            document.getElementById("tax-amount").innerText = '$' + tax;
+            const totalPrice = subTotalPrice + tax ;
+            document.getElementById('total-price').innerText = '$' +  totalPrice;    
+        }
+
+        document.getElementById('login').addEventListener('click',function(){
+            const bookingArea = document.getElementById("booking-area");
+            bookingArea.style.display = "none";
+            const  successfulArea = document.getElementById("successful-area");
+            successfulArea.style.display="block";
+        })
+
+
+
+    </script>
+</body>
+
+</html>
