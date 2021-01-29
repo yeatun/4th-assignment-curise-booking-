@@ -115,6 +115,7 @@
     <h2> your booking is successfully done!</h2>
 </div>
 
+    <!-- booking area -->
     <script>
          function handleSeatChange(seat,isIncrease){
             const seatInput = document.getElementById(seat + "-count");
@@ -140,6 +141,8 @@
            document.getElementById(seat +"-total").innerText = '(' + '$' + seatTotal + ')';
            calculateTotal();
         }
+        
+        // total calculation area
         function calculateTotal(){
             const firstClassInput = document.getElementById("first-class-count");
             const firstClassCount = parseInt(firstClassInput.value);
@@ -155,6 +158,7 @@
             document.getElementById('total-price').innerText = '$' +  totalPrice;    
         }
 
+        // next page area
         document.getElementById('login').addEventListener('click',function(){
             const bookingArea = document.getElementById("booking-area");
             bookingArea.style.display = "none";
