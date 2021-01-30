@@ -58,8 +58,8 @@ nav ul li a:hover, a.active{
     font-weight: 500;
 }
 .booking-form{
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: rgb(53, 136, 122);
+    border: 1px solid rgb(53, 136, 122);
     padding: 10px;
     border-radius: 5px;
     float: right;
@@ -85,7 +85,7 @@ nav ul li a:hover, a.active{
     padding: 10px;
     border-radius: 5px;
     border: none;
-    background: #F3F5FF;
+    background: #a9cecf;
     border-radius: 4px;
     margin: 10px 0;
 }
@@ -117,7 +117,7 @@ nav ul li a:hover, a.active{
     border: none;
     color: #fff;
     font-weight: 500;
-    background-color:  #E33741;
+    background-color:  #044a79;
 }
 .amount{
     display: flex;
@@ -127,9 +127,10 @@ nav ul li a:hover, a.active{
 {
     display: none; 
    font-size: 25px; 
-    color: rgb(91, 197, 211);
+ color: rgb(241, 241, 241);
 padding-top: 20%;
 padding-left: 25%;
+
     
 }
 h5{
