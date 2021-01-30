@@ -11,6 +11,8 @@
         rel="stylesheet">
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
 </head>
 
 <body>
@@ -39,68 +41,74 @@
         <div class="booking-form">
             <h3>Book Ocean Time</h3>
             <div class="input-group">
-                <label for="">Flying From</label>
-                <input class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh">
+                <label for=""><b>Flying From</b> </label>
+                <input class="inp-style" type="text" name="" placeholder="Origin">
             </div>
             <div class="input-group">
-                <label for="">Flying To</label>
-                <input class="inp-style" type="text" name="" placeholder="New York, United States">
+                <label for=""><b>  Flying To</b></label>
+                <input class="inp-style" type="text" name="" placeholder="Destination">
             </div>
             <div class="inputs">
                 <div class="input-group">
-                    <label" for="">Departure</label>
+                    <label" for=""> <b> Departure</b></label>
                     <input class="inp-style" type="date" name="">
                 </div>
                 <div class="input-group">
-                    <label for="">Return</label>
+                    <label for=""><b>  Return</b></label>
                     <input class="inp-style" type="date" name="">
                 </div>
             </div>
             <div class="input-group f-class ">
                 <div>
-                    <label  for="">First Class <span id="first-class-total">($150)</span> </label>
-                  <input id="first-class-count"  type="text" class="form-control text-center" value="1">
+                    <label  for=""><b> First Class <span >($150)</span></b>  </label>
+                  <input id="first-class-count"  type="text" class="form-control text-center" value="0">
                    
                 </div>
-                <div class="plus-minus-btn  ">
-                    <p><span onclick=" handleSeatChange( 'first-class', false);">-</span>  <span onclick=" handleSeatChange( 'first-class', true)">+</span></p>
+                 <div id="button" class="plus-minus-btn ">
+                    <p><button type="button"  onclick=" handleSeatChange( 'first-class', false)" class="btn btn-secondary">-</button>
+                     <button onclick=" handleSeatChange( 'first-class', true)" class="btn btn-secondary">+</button>  </p>
                 </div> 
+                <h5><span id="first-class-total">$0</span></h5>
             </div>
             
-            <div class="input-group f-class">
+            <div  class="input-group f-class">
                 <div>
-                    <label for="">Economy <span id="economy-total">($100)</span> </label>
-                    <input id="economy-count"  type="text" class="form-control text-center" value="1">
+                    <label for=""><b> Economy <span>($100)</span> </b></label>
+                    <input id="economy-count"  type="text" class="form-control text-center" value="0">
                 </div>
-                <div class="plus-minus-btn">
-                    <p> <span onclick=" handleSeatChange( 'economy', false);">-</span> <span  onclick=" handleSeatChange( 'economy', true)">+</span> </p>
+                <div id="button" class="plus-minus-btn">
+                  
+                    <p> <button onclick=" handleSeatChange( 'economy', false);" class="btn btn-secondary">-</button> 
+                        <button  onclick=" handleSeatChange( 'economy', true)" class="btn btn-secondary">+</button>  </p>
+                   
                 </div>
+                <h5><span  id="economy-total">$0</span></h5>
             </div>
             <div class="calculations">
                 <div class="amount">
                     <div class="left">
-                        <p>Subtotal</p>
+                        <p><b> Subtotal</b></p>
                     </div>
                     <div class="right">
-                        <p id="subTotal-price">$250</p>
+                        <p id="subTotal-price">$0</p>
                     </div>
                 </div>
 
                 <div class="amount">
                     <div class="left">
-                        <p >Charge 10% VAT</p>
+                        <p ><b>Charge 10% VAT</b> </p>
                     </div>
                     <div class="right">
-                        <p id="tax-amount">$25</p>
+                        <p id="tax-amount">$0</p>
                     </div>
                 </div>
                 <hr>
                 <div class="amount">
                     <div class="left">
-                        <h4>Total</h4>
+                        <h4><b> Total</b></h4>
                     </div>
                     <div class="right">
-                        <p id="total-price">$275</p>
+                        <p id="total-price">$0</p>
                     </div>
                 </div>
             </div>
@@ -111,7 +119,7 @@
     
 
 <div id="successful-area" >
-    <h1>Congratulation! </h1>
+    <h1>Congratulations! </h1>
     <h2> your booking is successfully done!</h2>
 </div>
 
@@ -138,7 +146,7 @@
             seatTotal = seatNewCount * 100 ;
         }
 
-           document.getElementById(seat +"-total").innerText = '(' + '$' + seatTotal + ')';
+           document.getElementById(seat +"-total").innerText =  '$' + seatTotal ;
            calculateTotal();
         }
         
@@ -164,8 +172,9 @@
             bookingArea.style.display = "none";
             const  successfulArea = document.getElementById("successful-area");
             successfulArea.style.display="block";
+            
         })
-
+       
 
 
     </script>
